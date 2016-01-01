@@ -1,0 +1,145 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.onlan.lazymemo"
+    android:versionCode="4"
+    android:versionName="1.0.6" >
+
+    <uses-sdk
+        android:minSdkVersion="3"
+        android:targetSdkVersion="11" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".MyApplication"
+        android:configChanges="keyboardHidden|orientation"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/MyTheme.NoTitleBar.APPBackground" >
+        <activity
+            android:name=".LoadingActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="d16bab935843a49054cf6f74fefe4f4f" />
+        <!--
+        测试;d16bab935843a49054cf6f74fefe4f4f
+        正式：2646d54fa67c47c3c794d398d9c39f50
+        -->
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+             android:screenOrientation="portrait"
+            android:label="@string/app_name"
+            >
+        </activity>
+
+        <service
+            android:name="com.onlan.lazymemo.service.GaodeLocationService"
+            android:label="GaodeLocationService"
+            android:persistent="true" >
+            <intent-filter>
+                <action android:name="com.onlan.lazymemo.service.GaodeLocationService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".NewMemoActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_new_memo"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".CalendarActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_calendar"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".AlarmActivity"
+            android:label="@string/title_activity_alarm"
+            android:theme="@style/BGtransparent" >
+        </activity>
+
+        <receiver
+            android:name="com.onlan.lazymemo.service.AlarmReceiver"
+            android:process=":remote" >
+        </receiver>
+
+        <activity
+            android:name=".BigMemoActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_big_memo"
+            android:screenOrientation="portrait"
+            android:theme="@style/BGtransparent" >
+        </activity>
+        <activity
+            android:name="com.onlan.myView.LoadingGifActivity"
+            android:label="@string/title_activity_loading_gif"
+            android:theme="@style/BGtransparent" >
+        </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".MySendMemoActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_my_send_memo"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service
+            android:name=".service.DownloadAPKService"
+            android:label="DownloadAPKService" >
+        </service>
+
+        <activity
+            android:name=".AboutUsActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".CommonMemoActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_common_memo"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+
+</manifest>
